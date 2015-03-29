@@ -1,10 +1,14 @@
 # == Class: hermes
 #
-# Installs Hermes, the Pandora client (http://alexcrichton.com/hermes/)
+# Installs Hermes, the Pandora client (http://hermesapp.org)
 #
 # === Parameters
 #
-# None.
+# [*version*]
+#   The version of the app to install.  Default 1.2.5
+#
+# [*base_url*]
+#   The download url. Default: https://s3.amazonaws.com/hermesmacapp
 #
 # === Variables
 #
@@ -16,16 +20,19 @@
 #
 # === Authors
 #
-# Adam Crews <adam@puppetlabs.com>
+# Adam Crews <adam.crews@gmail.com>
 #
 # === Copyright
 #
-# Copyright 2013 Adam Crews, unless otherwise noted.
+# Copyright 2015 Adam Crews, unless otherwise noted.
 #
-class hermes {
+class hermes (
+  $version = '1.2.5',
+  $base_url = 'https://s3.amazonaws.com/hermesmacapp',
+){
   package { 'hermes':
     ensure   => installed,
-    source   => 'https://s3.amazonaws.com/alexcrichton-hermes/Hermes-1.1.20.zip',
+    source   => "${base_url}/Hermes-${version}.zip",
     provider => 'compressed_app',
   }
 }
