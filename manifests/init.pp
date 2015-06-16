@@ -27,7 +27,7 @@
 # Copyright 2015 Adam Crews, unless otherwise noted.
 #
 class hermes (
-  $version = '1.2.5',
+  $version = '1.2.6',
   $base_url = 'https://s3.amazonaws.com/hermesmacapp',
 ){
   package { 'hermes':
